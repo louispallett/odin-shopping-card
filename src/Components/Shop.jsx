@@ -1,5 +1,5 @@
 import { Link } from "react-router-dom"
-export default function Cart() {
+export default function Shop() {
     return (
         <div>
             <p>This is the cart</p>
