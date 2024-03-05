@@ -1,0 +1,26 @@
+.sidebar {
+    background-color: #ffffff;
+    box-shadow: 2px 0 10px rgb(175, 175, 175);
+}
+
+.sidebar-top {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 20px;
+    & > img {
+        height: 4em;
+    }
+}
+
+.sidebar-main > nav > ol {
+    padding: 5px 0;
+    & > * > li {
+        font-size: 1.4rem;
+        margin: 5px;
+        border-radius: 5px;
+        &:hover {
+            background-color: rgba(216, 216, 216);
+        }
+    }
+}
