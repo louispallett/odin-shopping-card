@@ -1,10 +1,10 @@
-import { useState } from "react"
 import { Link } from "react-router-dom"
 
 import mainLogo from "../assets/main-logo.svg";
 import Sidebar from "./Sidebar";
 
 export default function App() {
+
     return (
         <>
             <Sidebar />
