@@ -1,3 +1,5 @@
+@use "colours";
+
 .sidebar {
     background-color: #ffffff;
     box-shadow: 2px 0 10px rgb(175, 175, 175);
@@ -8,6 +10,9 @@
     justify-content: center;
     align-items: center;
     gap: 20px;
+    border-bottom: 3px solid colours.$base-purple;
+    margin: 10px;
+    border-radius: 10px;;
     & > img:first-child {
         height: 4em;
     }
@@ -34,7 +39,6 @@
     position: absolute;
     left: 5px;
     top: 5px;
-    background-color: rgba(243, 243, 243, 0.568);
 }
 
 .sidebar-main > nav > ol {
@@ -44,7 +48,7 @@
         margin: 5px;
         border-radius: 5px;
         &:hover {
-            background-color: rgba(216, 216, 216);
+            background-color: rgba(149, 233, 132, 0.5);
         }
     }
 }

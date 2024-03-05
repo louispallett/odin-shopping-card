@@ -1,3 +1,5 @@
+@use "colours";
+
 .logo {
   height: 6em;
   padding: 1.5em;
@@ -48,7 +50,7 @@
 }
 
 .main-top {
-  background-color: #25ad62;
+  background-color: colours.$base-green;
   border-radius: 5px 5px 0 0;
   & > img {
     height: 225px;
