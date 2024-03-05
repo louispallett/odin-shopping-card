@@ -36,10 +36,11 @@ export default function Shop() {
     return (
         <>
             <Sidebar />
-            <div className="cards-wrapper">
+            <main>
                 <div className="shop-title">
                     <h1>Our Products</h1>
                 </div>
+                <div className="cards-wrapper">
                 {loading && (
                     <div className="main-page-wrapper">
                         <img src={loadingIcon} alt="" className="loading-icon" />
@@ -53,7 +54,8 @@ export default function Shop() {
                 {error && (
                     <p>Oh no, an error occured!</p>
                 )}
-            </div>
+                </div>
+            </main>
         </>
     )
 }
@@ -66,9 +68,9 @@ function Card({ data }) {
     };
 
     return (
-        <div className="product-wrapper">
+        <>
             {data && (
-                <>
+                <div className="product-wrapper">
                     <h5>{data.title}</h5>
                     <img src={data.image} alt={data.title} />
                     <p className={`description ${expanded ? 'expanded' : ''}`}>
@@ -88,9 +90,9 @@ function Card({ data }) {
                         </div>
                     </div>
                     
-                </>
+                </div>
             )}
             {/* loading and error sections can be added later */}
-        </div>
+        </>
     )
 }
