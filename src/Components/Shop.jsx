@@ -1,6 +1,7 @@
 import { useState, useEffect } from "react";
 import { Link } from "react-router-dom";
 
+import errorLogo from "../assets/error.svg";
 import loadingIcon from "../assets/loading.svg";
 import Sidebar from "./Sidebar"
 
@@ -52,7 +53,11 @@ export default function Shop() {
                     ))
                 )}
                 {error && (
-                    <p>Oh no, an error occured!</p>
+                    <div className="main-page-wrapper">
+                        <img src={errorLogo} alt="" className="error"/>
+                        <p>{error}</p>
+                        <p>Apologies - an error has occured trying to fetch data from the server. Please try again later.</p>
+                    </div>
                 )}
                 </div>
             </main>
@@ -61,26 +66,13 @@ export default function Shop() {
 }
 
 function Card({ data }) {
-    const [expanded, setExpanded] = useState(false);
-
-    const toggleExpanded = () => {
-        setExpanded(!expanded);
-    };
-
     return (
         <>
             {data && (
                 <div className="product-wrapper">
                     <h5>{data.title}</h5>
                     <img src={data.image} alt={data.title} />
-                    <p className={`description ${expanded ? 'expanded' : ''}`}>
-                        {data.description}
-                    </p>
-                    {data.description.length > 300 && (
-                        <a onClick={toggleExpanded}>
-                            {expanded ? 'Less...' : 'More...'}
-                        </a>
-                    )}
+                    <p className="description">{data.description}</p>
                     <div className="price-add-wrapper">
                         <p className="price">£{data.price}</p>
                         <div className="add-wrapper">
@@ -88,11 +80,10 @@ function Card({ data }) {
                             <input type="text" defaultValue={1}/>
                             <button id="plus-btn">+</button>
                         </div>
+                        <button className="add">Add</button>
                     </div>
-                    
                 </div>
             )}
-            {/* loading and error sections can be added later */}
         </>
     )
 }

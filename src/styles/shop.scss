@@ -12,6 +12,10 @@
     }
 }
 
+.error {
+    height: 30em;
+}
+
 .loading-icon {
     height: 10em;
     animation: rotate 1s linear infinite;
@@ -35,9 +39,9 @@
 }
 
 .product-wrapper {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
+    display: grid;
+    grid-template-rows: 50px 12em 1fr 40px;
+    justify-content: center;
     max-width: 300px;
     min-height: 300px;
     background-color: white;
@@ -47,7 +51,12 @@
     padding: 10px;
 }
 
+.product-wrapper > h5 {
+    justify-self: center;
+}
+
 .product-wrapper > img {
+    justify-self: center;
     max-height: 12em;
     max-width: 100%;
 }
@@ -55,30 +64,14 @@
 .description {
     font-size: .8rem;
     overflow: hidden;
-    max-height: 100px;
     transition: max-height 0.3s ease;
     margin-bottom: 0;
-}
-
-.description.expanded {
-    max-height: none;
-}
-
-.product-wrapper > a {
-    font-size: .8rem;
-    align-self: flex-start;
-    text-decoration: underline;
-    color: blue;
-    &:hover {
-        cursor: pointer;
-        opacity: .7;
-    }
 }
 
 
 .price-add-wrapper {
     display: grid;
-    grid-template-columns: 1fr 1.5fr;
+    grid-template-columns: 1fr 1fr 1fr;
     width: 100%;
     align-items: center;
 }
@@ -117,7 +110,25 @@
 
 .add-wrapper > button {
     width: 2em;
+}
+
+.add-wrapper > button,
+.add {
     background-color: colours.$base-green;
+    border: 2px solid colours.$base-green;
+    color: white;
+    font-weight: bold;
+    font-size: 1.1rem;
+    &:hover {
+        cursor: pointer;
+        background-color: colours.$base-green-hover;
+    }
+}
+
+.add {
+    margin: 0;
+    padding: 5px 20px;
+    justify-self: flex-end;
 }
 
 @media only screen and (max-width: 600px) {
