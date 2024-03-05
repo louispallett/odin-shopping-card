@@ -1,10 +1,11 @@
 import { Link } from "react-router-dom"
+
+import Sidebar from "./Sidebar"
+
 export default function Shop() {
     return (
-        <div>
-            <p>This is the cart</p>
-            <p>Click to go back to main page:</p>
-            <Link to="/"><button>Main page</button></Link>
-        </div>
+        <>
+            <Sidebar />
+        </>
     )
 }
