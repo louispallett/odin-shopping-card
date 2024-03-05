@@ -1,6 +1,7 @@
 import { createBrowserRouter, RouterProvider } from "react-router-dom";
 
 import App from "./App";
+import Basket from "./Basket";
 import Shop from "./Shop";
 
 export default function Router() {
@@ -12,6 +13,10 @@ export default function Router() {
         {
             path: "/shop",
             element: <Shop />
+        },
+        {
+            path: "/shop/basket",
+            element: <Basket />
         }
     ]);
 

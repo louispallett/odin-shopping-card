@@ -31,7 +31,7 @@ export default function Sidebar() {
                         <ol>
                             <Link to="/"><li>Home</li></Link>
                             <Link to="/shop"><li>Shop</li></Link>
-                            <Link to="/"><li>My basket</li></Link>
+                            <Link to="/shop/basket"><li>My Basket</li></Link>
                         </ol>
                     </nav>
                 </div>
