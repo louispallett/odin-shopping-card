@@ -1,0 +1,122 @@
+@use "colours";
+@use "fonts";
+
+.shop-title {
+    background-color: colours.$base-green;
+    min-height: 150px;
+    display: flex;
+    justify-content: center;
+    align-items: flex-end;
+    & > h1 {
+        padding: 20px;
+    }
+}
+
+.loading-icon {
+    height: 10em;
+    animation: rotate 1s linear infinite;
+}
+
+@keyframes rotate {
+    from {
+      transform: rotate(0deg);
+    }
+    to {
+      transform: rotate(360deg);
+    }
+}
+
+.product-wrapper {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    max-width: 300px;
+    min-height: 300px;
+    background-color: white;
+    border: 2px solid colours.$base-green; 
+    color: black;
+    border-radius: 10px;
+    padding: 10px;
+}
+
+.product-wrapper > img {
+    max-height: 12em;
+    max-width: 100%;
+}
+
+.description {
+    font-size: .8rem;
+    overflow: hidden;
+    max-height: 100px;
+    transition: max-height 0.3s ease;
+    margin-bottom: 0;
+}
+
+.description.expanded {
+    max-height: none;
+}
+
+.product-wrapper > a {
+    font-size: .8rem;
+    align-self: flex-start;
+    text-decoration: underline;
+    color: blue;
+    &:hover {
+        cursor: pointer;
+        opacity: .7;
+    }
+}
+
+
+.price-add-wrapper {
+    display: grid;
+    grid-template-columns: 1fr 1.5fr;
+    width: 100%;
+    align-items: center;
+}
+
+.price {
+    justify-self: flex-start;
+    padding: 5px 10px;
+    margin: 5px;
+    border: 2px solid rgb(219, 201, 35);
+    border-radius: 5px;
+    background-color: orange;
+    font-weight: bold;
+}
+
+.add-wrapper {
+    display: flex;
+    justify-self: flex-end;
+    margin: 0;
+    padding: 0;
+}
+
+.add-wrapper > input,
+.add-wrapper > button {
+    padding: 5px 5px;
+    margin: 5px 0;
+    font-size: 1rem;
+    border: none;
+}
+
+.add-wrapper > input {
+    width: 2em;
+    border-top: 1px solid colours.$base-green;
+    border-bottom: 1px solid colours.$base-green;
+    text-align: center;
+}
+
+.add-wrapper > button {
+    width: 2em;
+    background-color: colours.$base-green;
+}
+
+@media only screen and (max-width: 600px) {
+    .shop-title {
+        background-color: transparent;
+        & > h1 {
+            color: black;
+        }
+    }
+}

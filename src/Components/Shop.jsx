@@ -1,11 +1,12 @@
 import { useState, useEffect } from "react";
 import { Link } from "react-router-dom";
 
+import loadingIcon from "../assets/loading.svg";
 import Sidebar from "./Sidebar"
 
 export default function Shop() {
     const [data, setData] = useState(null);
-    const [loading, setLoading] = useState(null);
+    const [loading, setLoading] = useState(true);
     const [error, setError] = useState(null);
 
     useEffect(() => {
@@ -35,15 +36,61 @@ export default function Shop() {
     return (
         <>
             <Sidebar />
-            {data && (<div>{data[0].title}</div>)}
+            <div className="cards-wrapper">
+                <div className="shop-title">
+                    <h1>Our Products</h1>
+                </div>
+                {loading && (
+                    <div className="main-page-wrapper">
+                        <img src={loadingIcon} alt="" className="loading-icon" />
+                    </div>
+                )}
+                {data && (
+                    data.map(item => (
+                        <Card key={item.id} data={item} />
+                    ))
+                )}
+                {error && (
+                    <p>Oh no, an error occured!</p>
+                )}
+            </div>
         </>
     )
 }
 
-function Card() {
+function Card({ data }) {
+    const [expanded, setExpanded] = useState(false);
+
+    const toggleExpanded = () => {
+        setExpanded(!expanded);
+    };
+
     return (
         <div className="product-wrapper">
-
+            {data && (
+                <>
+                    <h5>{data.title}</h5>
+                    <img src={data.image} alt={data.title} />
+                    <p className={`description ${expanded ? 'expanded' : ''}`}>
+                        {data.description}
+                    </p>
+                    {data.description.length > 300 && (
+                        <a onClick={toggleExpanded}>
+                            {expanded ? 'Less...' : 'More...'}
+                        </a>
+                    )}
+                    <div className="price-add-wrapper">
+                        <p className="price">£{data.price}</p>
+                        <div className="add-wrapper">
+                            <button id="minus-btn">-</button>
+                            <input type="text" defaultValue={1}/>
+                            <button id="plus-btn">+</button>
+                        </div>
+                    </div>
+                    
+                </>
+            )}
+            {/* loading and error sections can be added later */}
         </div>
     )
 }
