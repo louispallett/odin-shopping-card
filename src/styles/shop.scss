@@ -93,7 +93,7 @@
     padding: 0;
 }
 
-.add-wrapper > input,
+.quantity,
 .add-wrapper > button {
     padding: 5px 5px;
     margin: 5px 0;
@@ -101,7 +101,7 @@
     border: none;
 }
 
-.add-wrapper > input {
+.quantity {
     width: 2em;
     border-top: 1px solid colours.$base-green;
     border-bottom: 1px solid colours.$base-green;

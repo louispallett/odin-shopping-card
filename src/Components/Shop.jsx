@@ -66,6 +66,14 @@ export default function Shop() {
 }
 
 function Card({ data }) {
+    const [count, setCount] = useState(1);
+
+    const handleDecrement = () => {
+        if (count != 1) {
+            setCount(count - 1);
+        }
+    };
+
     return (
         <>
             {data && (
@@ -76,9 +84,9 @@ function Card({ data }) {
                     <div className="price-add-wrapper">
                         <p className="price">£{data.price}</p>
                         <div className="add-wrapper">
-                            <button id="minus-btn">-</button>
-                            <input type="text" defaultValue={1}/>
-                            <button id="plus-btn">+</button>
+                            <button id="minus-btn" onClick={handleDecrement}>-</button>
+                            <div type="text" className="quantity">{count}</div>
+                            <button id="plus-btn" onClick={() => setCount((count) => count + 1)}>+</button>
                         </div>
                         <button className="add">Add</button>
                     </div>
