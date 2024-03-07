@@ -30,8 +30,8 @@ export default function Sidebar() {
                     <nav>
                         <ol>
                             <Link to="/"><li>Home</li></Link>
-                            <Link to="/shop"><li>Shop</li></Link>
-                            <Link to="/shop/basket"><li>My Basket</li></Link>
+                            <Link to="/store/shop"><li>Shop</li></Link>
+                            <Link to="/store/basket"><li>My Basket</li></Link>
                         </ol>
                     </nav>
                 </div>

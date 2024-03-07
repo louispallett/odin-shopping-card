@@ -1,9 +1,7 @@
 import { useState, useEffect } from "react";
-import { Link } from "react-router-dom";
 
 import errorLogo from "../assets/error.svg";
 import loadingIcon from "../assets/loading.svg";
-import Sidebar from "./Sidebar"
 
 export default function Shop() {
     const [data, setData] = useState(null);
@@ -35,33 +33,27 @@ export default function Shop() {
     }, []);
 
     return (
-        <>
-            <Sidebar />
-            <main>
-                <div className="shop-title">
-                    <h1>Our Products</h1>
-                </div>
-                <div className="cards-wrapper">
-                {loading && (
-                    <div className="main-page-wrapper">
-                        <img src={loadingIcon} alt="" className="loading-icon" />
-                    </div>
-                )}
-                {data && (
-                    data.map(item => (
-                        <Card key={item.id} data={item} />
-                    ))
-                )}
-                {error && (
-                    <div className="main-page-wrapper">
-                        <img src={errorLogo} alt="" className="error"/>
-                        <p>{error}</p>
-                        <p>Apologies - an error has occured trying to fetch data from the server. Please try again later.</p>
-                    </div>
-                )}
-                </div>
-            </main>
-        </>
+    <>
+        <div className="cards-wrapper">
+        {loading && (
+            <div className="main-page-wrapper">
+                <img src={loadingIcon} alt="" className="loading-icon" />
+            </div>
+        )}
+        {data && (
+            data.map(item => (
+                <Card key={item.id} data={item} />
+            ))
+        )}
+        {error && (
+            <div className="main-page-wrapper">
+                <img src={errorLogo} alt="" className="error"/>
+                <p>{error}</p>
+                <p>Apologies - an error has occured trying to fetch data from the server. Please try again later.</p>
+            </div>
+        )}
+        </div>
+    </>
     )
 }
 
