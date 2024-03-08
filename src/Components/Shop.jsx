@@ -3,7 +3,7 @@ import { useState, useEffect } from "react";
 import errorLogo from "../assets/error.svg";
 import loadingIcon from "../assets/loading.svg";
 
-export default function Shop() {
+export default function Shop({ setItemsInBasket }) {
     const [data, setData] = useState(null);
     const [loading, setLoading] = useState(true);
     const [error, setError] = useState(null);
@@ -42,7 +42,7 @@ export default function Shop() {
         )}
         {data && (
             data.map(item => (
-                <Card key={item.id} data={item} />
+                <Card key={item.id} data={item} setItemsInBasket={setItemsInBasket}/>
             ))
         )}
         {error && (
@@ -57,8 +57,12 @@ export default function Shop() {
     )
 }
 
-function Card({ data }) {
+function Card({ data, setItemsInBasket }) {
     const [count, setCount] = useState(1);
+
+    const addItem = () => {
+        setItemsInBasket((prevItems) => [...prevItems, data]);
+    }
 
     const handleDecrement = () => {
         if (count != 1) {
@@ -68,22 +72,20 @@ function Card({ data }) {
 
     return (
         <>
-            {data && (
-                <div className="product-wrapper">
-                    <h5>{data.title}</h5>
-                    <img src={data.image} alt={data.title} />
-                    <p className="description">{data.description}</p>
-                    <div className="price-add-wrapper">
-                        <p className="price">£{data.price}</p>
-                        <div className="add-wrapper">
-                            <button id="minus-btn" onClick={handleDecrement}>-</button>
-                            <div type="text" className="quantity">{count}</div>
-                            <button id="plus-btn" onClick={() => setCount((count) => count + 1)}>+</button>
-                        </div>
-                        <button className="add">Add</button>
+            <div className="product-wrapper">
+                <h5>{data.title}</h5>
+                <img src={data.image} alt={data.title} />
+                <p className="description">{data.description}</p>
+                <div className="price-add-wrapper">
+                    <p className="price">£{data.price}</p>
+                    <div className="add-wrapper">
+                        <button id="minus-btn" onClick={handleDecrement}>-</button>
+                        <div type="text" className="quantity">{count}</div>
+                        <button id="plus-btn" onClick={() => setCount((count) => count + 1)}>+</button>
                     </div>
+                    <button className="add" onClick={addItem}>Add</button>
                 </div>
-            )}
+            </div>
         </>
     )
 }

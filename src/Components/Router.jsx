@@ -1,3 +1,4 @@
+import { useState } from "react";
 import { createBrowserRouter, RouterProvider } from "react-router-dom";
 
 import App from "./App";
@@ -6,6 +7,8 @@ import Shop from "./Shop";
 import Store from "./Store";
 
 export default function Router() {
+    const [itemsInBasket, setItemsInBasket] = useState([]);
+
     const router = createBrowserRouter([
         {
             path: "/",
@@ -17,11 +20,11 @@ export default function Router() {
             children: [
                 {
                     path: "shop",
-                    element: <Shop />,
+                    element: <Shop setItemsInBasket={setItemsInBasket} />,
                 },
                 {
                     path: "basket",
-                    element: <Basket />,
+                    element: <Basket itemsInBasket={itemsInBasket} />,
                 },
             ]
         },
