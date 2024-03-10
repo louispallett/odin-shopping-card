@@ -6,12 +6,14 @@ export default function Store() {
     return (
         <>
             <Sidebar />
-            <main>
+            <div className="page">
                 <div className="shop-title">
                     <h1>Our Store</h1>
                 </div>
-                <Outlet />
-            </main>  
+                <main>
+                    <Outlet />
+                </main>
+            </div>
         </>
     )
 }

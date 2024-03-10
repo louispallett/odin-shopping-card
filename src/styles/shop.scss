@@ -1,6 +1,10 @@
 @use "colours";
 @use "fonts";
 
+.page {
+    flex: 1 auto;
+}
+
 .shop-title {
     background-color: colours.$base-green;
     min-height: 150px;
@@ -71,10 +75,11 @@
 
 
 .price-add-wrapper {
-    display: grid;
-    grid-template-columns: 1fr 1fr 1fr;
-    width: 100%;
+    display: flex;
+    justify-content: flex-end;
     align-items: center;
+    gap: 10px;
+
 }
 
 .price {
@@ -96,7 +101,7 @@
 
 .quantity,
 .add-wrapper > button {
-    padding: 5px 5px;
+    padding: 2.5px 5px;
     margin: 5px 0;
     font-size: 1rem;
     border: none;
@@ -109,34 +114,7 @@
     text-align: center;
 }
 
-.add-wrapper > button {
+#plus-btn,
+#minus-btn {
     width: 2em;
-}
-
-.add-wrapper > button,
-.add {
-    background-color: colours.$base-green;
-    border: 2px solid colours.$base-green;
-    color: white;
-    font-weight: bold;
-    font-size: 1.1rem;
-    &:hover {
-        cursor: pointer;
-        background-color: colours.$base-green-hover;
-    }
-}
-
-.add {
-    margin: 0;
-    padding: 5px 20px;
-    justify-self: flex-end;
-}
-
-@media only screen and (max-width: 600px) {
-    .shop-title {
-        background-color: transparent;
-        & > h1 {
-            color: black;
-        }
-    }
 }
