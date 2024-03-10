@@ -11,7 +11,7 @@ export default function Basket({ itemsInBasket }) {
                     <div>
                         {itemsInBasket.length !== 0 ? (
                             itemsInBasket.map(item => (
-                                <BasketItem key={item.id} item={item} />
+                                <BasketItem key={item[0].id} item={item[0]} quantity={item[1]} />
                             ))
                             ) : (
                                 <div className="basket-item-wrapper">
@@ -38,7 +38,7 @@ export default function Basket({ itemsInBasket }) {
     )
 }
 
-function BasketItem({ item }) {
+function BasketItem({ item, quantity }) {
     return (
         <div className="basket-item-wrapper">
             <img src={item.image} alt="" />
@@ -51,7 +51,7 @@ function BasketItem({ item }) {
                 <div className="price-add-wrapper">
                     <div className="add-wrapper">
                         <button id="minus-btn">-</button>
-                        <div type="text" className="quantity">5</div>
+                        <div type="text" className="quantity">{quantity}</div>
                         <button id="plus-btn">+</button>
                     </div>
                     <button className="add">Update</button>

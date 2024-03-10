@@ -60,15 +60,15 @@ export default function Shop({ setItemsInBasket }) {
 function Card({ data, setItemsInBasket }) {
     const [count, setCount] = useState(1);
 
-    const addItem = () => {
-        setItemsInBasket((prevItems) => [...prevItems, data]);
-    }
-
     const handleDecrement = () => {
         if (count != 1) {
             setCount(count - 1);
         }
     };
+
+    const addItem = () => {
+        setItemsInBasket((prevItems) => [...prevItems, [data, count]]);
+    }
 
     return (
         <>
