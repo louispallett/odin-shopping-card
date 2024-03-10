@@ -2,33 +2,132 @@
 
 .basket-wrapper {
     display: grid;
-    grid-template-columns: 3fr 1fr;
+    grid-template-columns: 1fr .5fr;
+    align-items: flex-start;
+}
+
+.basket-left, 
+.basket-right {
+    background-color: white;
+    border-radius: 10px;
+    margin: 10px 10px;
+    border: 2px solid colours.$base-green;
+    & > h3 {
+        margin: 0;
+        padding: 20px 0 0 0;
+        text-align: center;
+        background-color: colours.$base-green;
+        color: white;
+        border-radius: 5px 5px 0 0;
+    }
+}
+
+.basket-left {
+    & > div {
+        display: flex;
+        justify-content: space-between;
+    }
+}
+
+.pattern {
+    min-width: 15em;
+    background-image: url("../assets/pattern.jpg");
+    background-size: cover;
+    background-repeat: repeat;
+    border-radius: 0 0 10px 0;
 }
 
 .basket-item-wrapper {
-    margin: 10px 10px;
-    border: 2px solid colours.$base-green;
-    background-color: white;
-    border-radius: 10px;
-}
-
-.basket-title {
-    background-color: colours.$base-green;
-    text-align: center;
-    border-radius: 5px 5px 0 0;
-    & > h3 {
-        margin: 0;
-        padding: 40px 0 5px 0;
-        color: white;
-    }
+    display: flex;
+    padding: 0 10px;
+    max-width: 600px;
 }
 
 .basket-main {
     display: flex;
+    flex-direction: column;
     justify-content: center;
+    & > span {
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        & > h5 {
+            color: colours.$base-green;
+        }
+    }
+    & > h3 {
+        margin: 0;
+    }
+    & > .price {
+        align-self: flex-end;
+    }
 }
 
-.basket-main > img {
-    max-height: 12em;
+.remove {
+    background-color: colours.$button-red;
+    &:hover {
+        background-color: colours.$button-red-hover;
+    }
+}
+
+.basket-item-wrapper > img {
+    max-height: 8em;
     max-width: 100%;
+    margin: 20px;
+}
+
+@media only screen and (max-width: 1730px) {
+    .pattern {
+        display: none;
+    }
+}
+    
+@media only screen and (max-width: 1080px) {
+    .basket-wrapper {
+        grid-template-columns: 620px 1fr;
+    }
+
+    .basket-item-wrapper > img {
+        max-height: 5em;
+    }
+}
+
+@media only screen and (max-width: 900px) {
+    .basket-wrapper {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+    }
+}
+
+@media only screen and (max-width: 900px) {
+    .basket-main > h3,
+    .basket-main > div > button {
+        font-size: 90%;
+    }
+
+    .add-wrapper {
+        padding: 0;
+        & > div {
+            font-size: 80%;
+        }
+    }
+}
+
+@media only screen and (max-width: 600px) {
+    .basket-item-wrapper > img {
+        max-height: 3em;
+    }
+}
+
+@media only screen and (max-width: 470px) {
+    .price-add-wrapper {
+        flex-direction: column;
+        align-self: flex-end;
+        gap: 0;
+        & > div {
+            margin: 0;
+            padding: 0;
+        }
+    }
 }
