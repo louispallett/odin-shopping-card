@@ -9,7 +9,7 @@ export default function Sidebar() {
     
     const showMenu = () => {
         const menu = document.querySelector(".sidebar");
-        menu.style.display = "block";
+        menu.style.display = "flex";
     }
 
     const hideMenu = () => {
@@ -21,10 +21,10 @@ export default function Sidebar() {
         <>
             <img src={menuLogo} alt="" className="menu-btn" onClick={showMenu}/>
             <div className="sidebar">
+                <img src={exitLogo} alt="" className="exit-btn" onClick={hideMenu}/>
                 <div className="sidebar-top">
                     <img src={companyLogo} alt="" />
                     <h2>Mikoshi</h2>
-                    <img src={exitLogo} alt="" className="exit-btn" onClick={hideMenu}/>
                 </div>
                 <div className="sidebar-main">
                     <nav>
