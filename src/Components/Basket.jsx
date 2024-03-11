@@ -1,7 +1,5 @@
 import { useEffect, useState } from "react";
 
-import pattern from "../assets/pattern.jpg"
-
 export default function Basket({ itemsInBasket }) {
     return (
         <div className="basket-wrapper">
@@ -34,11 +32,20 @@ export default function Basket({ itemsInBasket }) {
                     </div>
                 </form>
             </div>
+            <Total itemsInBasket={itemsInBasket}/>
         </div>
     )
 }
 
 function BasketItem({ item, quantity }) {
+    const [count, setCount] = useState(quantity);
+
+    const handleDecrement = () => {
+        if (count != 1) {
+            setCount(count - 1);
+        }
+    };
+
     return (
         <div className="basket-item-wrapper">
             <img src={item.image} alt="" />
@@ -50,14 +57,36 @@ function BasketItem({ item, quantity }) {
                 </span>
                 <div className="price-add-wrapper">
                     <div className="add-wrapper">
-                        <button id="minus-btn">-</button>
-                        <div type="text" className="quantity">{quantity}</div>
-                        <button id="plus-btn">+</button>
+                        <button id="minus-btn" onClick={handleDecrement}>-</button>
+                        <div type="text" className="quantity">{count}</div>
+                        <button id="plus-btn" onClick={() => setCount((count) => count + 1)}>+</button>
                     </div>
                     <button className="add">Update</button>
                     <button className="remove">Remove</button>
                 </div>
             </div>
+        </div>
+    )
+}
+
+function Total({ itemsInBasket }) {
+    const [totalPrice, setTotalPrice] = useState(0);
+    
+    useEffect(() => {
+        const calculateTotal = () => {
+            let price = 0;
+            for(let i = 0; i < itemsInBasket.length; i++) {
+                price += itemsInBasket[i][0].price * itemsInBasket[i][1];
+            }
+            // toFixed here to ensure no floating point errors (only to 2 decimal places)
+            setTotalPrice(price.toFixed(2));
+        }
+        if (itemsInBasket.length > 0) calculateTotal();
+    }, [itemsInBasket])
+
+    return (
+        <div className="basket-total">
+            <h2>Total Price: £{totalPrice}</h2>
         </div>
     )
 }

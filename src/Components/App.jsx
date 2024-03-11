@@ -8,6 +8,7 @@ export default function App() {
     return (
         <>
             <Sidebar />
+            <div className="shop-title"></div>
             <div className="main-page-wrapper">
                 <section className="home-logo">
                     <div className="main-top">

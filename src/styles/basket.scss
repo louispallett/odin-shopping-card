@@ -7,11 +7,16 @@
 }
 
 .basket-left, 
-.basket-right {
+.basket-right,
+.basket-total {
     background-color: white;
     border-radius: 10px;
     margin: 10px 10px;
     border: 2px solid colours.$base-green;
+    & > h2 {
+        padding: 20px;
+        margin: 0;
+    }
     & > h3 {
         margin: 0;
         padding: 20px 0 0 0;
