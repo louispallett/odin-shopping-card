@@ -60,10 +60,13 @@
     justify-self: center;
 }
 
-.product-wrapper > img {
-    justify-self: center;
-    max-height: 12em;
-    max-width: 100%;
+.product-img {
+    // justify-self: center;
+    // max-height: 12em;
+    // width: fit-content;
+    background-repeat: no-repeat;
+    background-position: center;
+    background-size: contain;
 }
 
 .description {

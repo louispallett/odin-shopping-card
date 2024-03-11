@@ -48,7 +48,7 @@ function BasketItem({ item, quantity }) {
 
     return (
         <div className="basket-item-wrapper">
-            <img src={item.image} alt="" />
+            <div className="product-img" style={{backgroundImage: `url(${item.image})`}} id="basket-img"></div>
             <div className="basket-main">
                 <h3>{item.title}</h3>
                 <span>

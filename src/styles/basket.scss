@@ -44,7 +44,7 @@
 
 .basket-item-wrapper {
     display: flex;
-    padding: 30px 0;
+    padding: 30px 10px;
     max-width: 500px;
 }
 
@@ -68,17 +68,16 @@
     }
 }
 
+#basket-img {
+    height: 12em;
+    width: 12em;
+}
+
 .remove {
     background-color: colours.$button-red;
     &:hover {
         background-color: colours.$button-red-hover;
     }
-}
-
-.basket-item-wrapper > img {
-    max-height: 8em;
-    max-width: 100%;
-    margin: 20px;
 }
 
 @media only screen and (max-width: 1730px) {
@@ -92,8 +91,9 @@
         grid-template-columns: 620px 1fr;
     }
 
-    .basket-item-wrapper > img {
-        max-height: 5em;
+    #basket-img {
+        height: 8em;
+        width: 8em;
     }
 }
 
@@ -120,8 +120,9 @@
 }
 
 @media only screen and (max-width: 600px) {
-    .basket-item-wrapper > img {
-        max-height: 3em;
+    #basket-img {
+        height: 6em;
+        width: 6em;
     }
 }
 

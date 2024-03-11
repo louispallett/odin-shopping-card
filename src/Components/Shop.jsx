@@ -74,7 +74,7 @@ function Card({ data, setItemsInBasket }) {
         <>
             <div className="product-wrapper">
                 <h5>{data.title}</h5>
-                <img src={data.image} alt={data.title} />
+                <div className="product-img" style={{backgroundImage: `url(${data.image})`}}></div>
                 <p className="description">{data.description}</p>
                 <div className="price-add-wrapper">
                     <p className="price">£{data.price}</p>
