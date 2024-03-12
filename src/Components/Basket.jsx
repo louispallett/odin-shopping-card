@@ -14,7 +14,7 @@ export default function Basket({ itemsInBasket }) {
                         <img src={cartIcon} alt="" />
                         <h3>Items in Basket</h3>
                     </div>
-                    <div>
+                    <div className="basket-all-wrapper">
                         <div>
                             {itemsInBasket.length !== 0 ? (
                                 itemsInBasket.map(item => (
