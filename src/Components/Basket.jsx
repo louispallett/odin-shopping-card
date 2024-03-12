@@ -8,26 +8,29 @@ import cartIcon from "../assets/checkout-cart.svg";
 export default function Basket({ itemsInBasket }) {
     return (
         <div className="basket-wrapper">
-            <div className="basket-left">
-                <div className="basket-card-title">
-                    <img src={cartIcon} alt="" />
-                    <h3>Items in Basket</h3>
-                </div>
-                <div>
-                    <div>
-                        {itemsInBasket.length !== 0 ? (
-                            itemsInBasket.map(item => (
-                                <BasketItem key={item[0].id} item={item[0]} quantity={item[1]} />
-                            ))
-                            ) : (
-                                <div className="basket-item-wrapper">
-                                    <p>Nothing in basket</p>
-                                </div>
-                            )
-                        }
+            <div>
+                <div className="basket-left">
+                    <div className="basket-card-title">
+                        <img src={cartIcon} alt="" />
+                        <h3>Items in Basket</h3>
                     </div>
-                    <div className="pattern"></div>
+                    <div>
+                        <div>
+                            {itemsInBasket.length !== 0 ? (
+                                itemsInBasket.map(item => (
+                                    <BasketItem key={item[0].id} item={item[0]} quantity={item[1]} />
+                                ))
+                                ) : (
+                                    <div className="basket-item-wrapper">
+                                        <p>Nothing in basket</p>
+                                    </div>
+                                )
+                            }
+                        </div>
+                        <div className="pattern"></div>
+                    </div>
                 </div>
+                <Total itemsInBasket={itemsInBasket}/>
             </div>
             <div className="basket-right">
                 <div className="basket-card-title">
@@ -36,7 +39,6 @@ export default function Basket({ itemsInBasket }) {
                 </div>
                 <Form />
             </div>
-            <Total itemsInBasket={itemsInBasket}/>
         </div>
     )
 }
