@@ -43,6 +43,7 @@ button {
   &:hover {
     cursor: pointer;
     background-color: colours.$base-green-hover;
+    transition: background-color 350ms ease-in;
   }
 }
 
