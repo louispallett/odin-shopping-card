@@ -67,7 +67,7 @@ function BasketItem({ item, quantity }) {
                         <div type="text" className="quantity">{count}</div>
                         <button id="plus-btn" onClick={() => setCount((count) => count + 1)}>+</button>
                     </div>
-                    <button className="add">Update</button>
+                    <button>Update</button>
                     <button className="remove">Remove</button>
                 </div>
             </div>

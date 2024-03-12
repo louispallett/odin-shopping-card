@@ -24,9 +24,6 @@ a {
   color: black;
   text-decoration: inherit;
 }
-a:hover {
-  color: colours.$base-purple;
-}
 
 body {
   margin: 0;
@@ -102,5 +99,32 @@ main {
   #root {
     display: flex;
     justify-content: center;
+  }
+}
+
+@keyframes bounce {
+  100% {
+    transform:translateY(-20px);
+  }
+}
+
+@keyframes fade {
+  0% {
+    transform: translateY(-40px);
+    opacity: .4;
+  }
+
+  100% {
+    transform: translateY(0);
+    opacity: 1;
+  }
+}
+
+@keyframes rotate {
+  0% {
+      transform: rotate(0);
+  }
+  100% {
+      transform: rotate(360deg);
   }
 }

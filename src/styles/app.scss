@@ -33,6 +33,17 @@
     height: 225px;
     width: 250px;
   }
+  & > h1 {
+    animation: bounce .4s ease 12 alternate;
+  }
+}
+
+.main-top > img,
+.main-bottom > h4,
+.shop-title > h1,
+.add,
+.basket-card-title > * {
+  animation: fade 1s ease forwards;
 }
 
 .main-bottom {
