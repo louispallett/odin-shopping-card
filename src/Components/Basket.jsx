@@ -18,7 +18,7 @@ export default function Basket({ itemsInBasket }) {
                         <div>
                             {itemsInBasket.length !== 0 ? (
                                 itemsInBasket.map(item => (
-                                    <BasketItem key={item[0].id} item={item[0]} quantity={item[1]} />
+                                    <BasketItem key={item[0].id} data={item} />
                                 ))
                                 ) : (
                                     <div className="basket-item-wrapper">
@@ -43,8 +43,8 @@ export default function Basket({ itemsInBasket }) {
     )
 }
 
-function BasketItem({ item, quantity }) {
-    const [count, setCount] = useState(quantity);
+function BasketItem({ data }) {
+    const [count, setCount] = useState(data[1]);
 
     const handleDecrement = () => {
         if (count != 1) {
@@ -54,12 +54,12 @@ function BasketItem({ item, quantity }) {
 
     return (
         <div className="basket-item-wrapper">
-            <div className="product-img" style={{backgroundImage: `url(${item.image})`}} id="basket-img"></div>
+            <div className="product-img" style={{backgroundImage: `url(${data[0].image})`}} id="basket-img"></div>
             <div className="basket-main">
-                <h3>{item.title}</h3>
+                <h3>{data[0].title}</h3>
                 <span>
                     <h5>✓ In Stock</h5>
-                    <p className="price">£{item.price}</p>
+                    <p className="price">£{data[0].price}</p>
                 </span>
                 <div className="price-add-wrapper">
                     <div className="add-wrapper">
