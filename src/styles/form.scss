@@ -1,0 +1,48 @@
+@use "colours";
+
+.general {
+    display: flex;
+    flex-direction: column;
+    padding: 10px;
+}
+
+form  {
+    display: flex;
+    flex-direction: column;
+    & > button {
+        margin: 10px 0;
+        border-radius: 5px;
+    }
+}
+
+form > div {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 20px
+}
+
+.general-info-wrapper {
+    display: flex;
+    flex-direction: column;
+}
+
+.number-wrapper {
+    display: flex;
+    gap: 5px;
+}
+
+input,
+textarea,
+select {
+    background-color: colours.$base-green-blank;
+    border-radius: 5px;
+    border: 2px solid colours.$base-green;
+    padding: 5px;
+    min-width: 0;
+    max-width: none;
+    &:focus {
+        border: 2px solid colours.$base-green-hover;
+        background-color: colours.$base-green-focus;
+        outline: none;
+    }
+}

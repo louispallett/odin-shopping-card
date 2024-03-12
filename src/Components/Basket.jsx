@@ -1,10 +1,18 @@
 import { useEffect, useState } from "react";
 
+import Form from "./Form";
+
+import checkoutIcon from "../assets/checkout.svg";
+import cartIcon from "../assets/checkout-cart.svg";
+
 export default function Basket({ itemsInBasket }) {
     return (
         <div className="basket-wrapper">
             <div className="basket-left">
-                <h3>Items in Basket</h3>
+                <div className="basket-card-title">
+                    <img src={cartIcon} alt="" />
+                    <h3>Items in Basket</h3>
+                </div>
                 <div>
                     <div>
                         {itemsInBasket.length !== 0 ? (
@@ -22,15 +30,11 @@ export default function Basket({ itemsInBasket }) {
                 </div>
             </div>
             <div className="basket-right">
-                <h3>Checkout</h3>
-                <form action="#">
-                    <div>
-                        <label htmlFor="firstName">First Name</label>
-                        <input type="text" id="firstName" />
-                        <label htmlFor="lastName">Last Name</label>
-                        <input type="text" id="lastName"/>
-                    </div>
-                </form>
+                <div className="basket-card-title">
+                    <img src={checkoutIcon} alt="" />
+                    <h3>Checkout</h3>
+                </div>
+                <Form />
             </div>
             <Total itemsInBasket={itemsInBasket}/>
         </div>

@@ -17,20 +17,19 @@
         padding: 20px;
         margin: 0;
     }
-    & > h3 {
-        margin: 0;
-        padding: 20px 0 0 0;
-        text-align: center;
-        background-color: colours.$base-green;
-        color: white;
-        border-radius: 5px 5px 0 0;
-    }
 }
 
-.basket-left {
-    & > div {
-        display: flex;
-        justify-content: space-between;
+.basket-card-title {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 20px;
+    background-color: colours.$base-green;
+    color: white;
+    border-radius: 5px 5px 0 0;
+    & > img {
+        height: 2em;
+        fill: white;
     }
 }
 
@@ -125,15 +124,3 @@
         width: 6em;
     }
 }
-
-// @media only screen and (max-width: 470px) {
-//     .price-add-wrapper {
-//         flex-direction: column;
-//         align-self: flex-end;
-//         gap: 0;
-//         & > div {
-//             margin: 0;
-//             padding: 0;
-//         }
-//     }
-// }
