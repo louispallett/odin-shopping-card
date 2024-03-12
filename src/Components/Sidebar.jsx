@@ -1,8 +1,11 @@
 import { Link } from "react-router-dom";
 
 import companyLogo from "../assets/react.svg";
+import cartLogo from "/cart.svg";
 import exitLogo from "../assets/exit.svg";
+import homeLogo from "../assets/home.svg";
 import menuLogo from "../assets/menu.svg";
+import shopLogo from "../assets/shop.svg"
 
 export default function Sidebar() {
     
@@ -29,9 +32,18 @@ export default function Sidebar() {
                 <div className="sidebar-main">
                     <nav>
                         <ol>
-                            <Link to="/"><li>Home</li></Link>
-                            <Link to="/store/shop"><li>Shop</li></Link>
-                            <Link to="/store/basket"><li>My Basket</li></Link>
+                            <Link to="/">
+                                <img src={homeLogo} alt="" />
+                                <li>Home</li>
+                            </Link>
+                            <Link to="/store/shop">
+                                <img src={shopLogo} alt="" />
+                                <li>Shop</li>
+                            </Link>
+                            <Link to="/store/basket">
+                                <img src={cartLogo} alt="" />
+                                <li>My Basket</li>
+                            </Link>
                         </ol>
                     </nav>
                 </div>
