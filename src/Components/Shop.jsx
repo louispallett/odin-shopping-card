@@ -3,7 +3,7 @@ import { useState, useEffect } from "react";
 import errorLogo from "../assets/error.svg";
 import loadingIcon from "../assets/loading.svg";
 
-export default function Shop({ setItemsInBasket }) {
+export default function Shop({ itemsInBasket, setItemsInBasket }) {
     const [data, setData] = useState(null);
     const [loading, setLoading] = useState(true);
     const [error, setError] = useState(null);
@@ -42,7 +42,7 @@ export default function Shop({ setItemsInBasket }) {
         )}
         {data && (
             data.map(item => (
-                <Card key={item.id} data={item} setItemsInBasket={setItemsInBasket}/>
+                <Card key={item.id} data={item} itemsInBasket={itemsInBasket} setItemsInBasket={setItemsInBasket}/>
             ))
         )}
         {error && (
@@ -57,7 +57,7 @@ export default function Shop({ setItemsInBasket }) {
     )
 }
 
-function Card({ data, setItemsInBasket }) {
+function Card({ data, itemsInBasket, setItemsInBasket }) {
     const [count, setCount] = useState(1);
 
     const handleDecrement = () => {
@@ -67,6 +67,13 @@ function Card({ data, setItemsInBasket }) {
     };
 
     const addItem = () => {
+        for (let i = 0; i < itemsInBasket.length; i++) {
+            if (itemsInBasket[i][0].id == data.id) {
+                itemsInBasket[i][1] += count;
+                return;
+            }
+        }
+
         setItemsInBasket((prevItems) => [...prevItems, [data, count]]);
     }
 

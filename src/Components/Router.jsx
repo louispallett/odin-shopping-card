@@ -20,7 +20,7 @@ export default function Router() {
             children: [
                 {
                     path: "shop",
-                    element: <Shop setItemsInBasket={setItemsInBasket} />,
+                    element: <Shop itemsInBasket={itemsInBasket} setItemsInBasket={setItemsInBasket} />,
                 },
                 {
                     path: "basket",
