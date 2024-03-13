@@ -12,10 +12,10 @@ export default function App() {
                     <section>
                         <div className="main-top">
                             <img src={mainLogo} alt="" />
-                            <h1>Mikoshi Books</h1>
+                            <h1>Mikoshi Online</h1>
                         </div>
                         <div className="main-bottom">
-                            <h4>Welcome to the future of academic publishing</h4>
+                            <h4>Come and consume our products, consumer!</h4>
                         </div>
                     </section>
                 </div>
