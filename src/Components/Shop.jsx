@@ -3,6 +3,8 @@ import { useState, useEffect } from "react";
 import errorLogo from "../assets/error.svg";
 import loadingIcon from "../assets/loading.svg";
 
+import { showAdded } from "../js/other-functions";
+
 export default function Shop({ itemsInBasket, setItemsInBasket }) {
     const [data, setData] = useState(null);
     const [loading, setLoading] = useState(true);
@@ -70,11 +72,13 @@ function Card({ data, itemsInBasket, setItemsInBasket }) {
         for (let i = 0; i < itemsInBasket.length; i++) {
             if (itemsInBasket[i][0].id == data.id) {
                 itemsInBasket[i][1] += count;
+                showAdded();
                 return;
             }
         }
 
         setItemsInBasket((prevItems) => [...prevItems, [data, count]]);
+        showAdded();
     }
 
     return (

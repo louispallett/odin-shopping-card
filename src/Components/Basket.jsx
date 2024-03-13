@@ -52,6 +52,19 @@ function BasketItem({ data }) {
         }
     };
 
+    const updateQuantity = () => {
+        // for (let i = 0; i < itemsInBasket.length; i++) {
+        //     if (itemsInBasket[i][0].id == data.id) {
+        //         itemsInBasket[i][1] = count;
+        //         return;
+        //     }
+        // }
+    }
+
+    const removeItem = () => {
+
+    }
+
     return (
         <div className="basket-item-wrapper">
             <div className="product-img" style={{backgroundImage: `url(${data[0].image})`}} id="basket-img"></div>
@@ -67,8 +80,8 @@ function BasketItem({ data }) {
                         <div type="text" className="quantity">{count}</div>
                         <button id="plus-btn" onClick={() => setCount((count) => count + 1)}>+</button>
                     </div>
-                    <button>Update</button>
-                    <button className="remove">Remove</button>
+                    <button onClick={updateQuantity}>Update</button>
+                    <button className="remove" onClick={removeItem}>Remove</button>
                 </div>
             </div>
         </div>
